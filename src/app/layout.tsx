@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import clsx from 'clsx'
 import { erode, iosevka, tasa_explorer } from './fonts'
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,13 +15,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={clsx(
           `${tasa_explorer.variable} ${erode.variable} ${iosevka.variable}`
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
