@@ -34,6 +34,32 @@ const config: Config = {
         dark: '#282729',
         'dark/link-primary': '#93C5FD',
         'dark/link-secondary': '#A5B5C6'
+      },
+      keyframes: {
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' }
+        },
+        'fade-out': {
+          from: { opacity: '1' },
+          to: { opacity: '0' }
+        },
+        'backdrop-in': {
+          from: { opacity: '0', 'backdrop-filter': 'blur(0px)' },
+          to: { opacity: '1', 'backdrop-filter': 'blur(4px)' }
+        },
+        'backdrop-out': {
+          from: { opacity: '1', 'backdrop-filter': 'blur(4px)' },
+          to: { opacity: '0', 'backdrop-filter': 'blur(0px)' }
+        },
+        'slide-in': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0%)' }
+        },
+        'slide-out': {
+          from: { transform: 'translateX(0%)' },
+          to: { transform: 'translateX(-100%)' }
+        }
       }
     }
   },
