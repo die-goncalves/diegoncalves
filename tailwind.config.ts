@@ -68,6 +68,14 @@ const config: Config = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1440px'
+    },
+    fontSize: {
+      xs: ['0.875rem' /* 12px */, '125%' /* 15px */],
+      sm: ['1rem' /* 16px */, '150%' /* 24px */],
+      base: ['1.25rem' /* 20px */, '175%' /* 35px */],
+      xl: ['2rem' /* 32px */, '125%' /* 40px */],
+      '2xl': ['3rem' /* 48px */, '125%' /* 60px */],
+      '3xl': ['6rem' /* 96px */, '100%' /* 96px */]
     }
   },
   plugins: [require('tailwindcss-easing')]
