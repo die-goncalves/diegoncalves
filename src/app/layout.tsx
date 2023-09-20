@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import clsx from 'clsx'
 import { erode, iosevka, tasa_explorer } from './fonts'
 import { Providers } from './providers'
+import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +22,10 @@ export default function RootLayout({
           `${tasa_explorer.variable} ${erode.variable} ${iosevka.variable}`
         )}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   )
