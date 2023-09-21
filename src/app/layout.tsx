@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { erode, iosevka, tasa_explorer } from './fonts'
 import { Providers } from './providers'
 import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
