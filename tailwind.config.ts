@@ -23,10 +23,12 @@ const config: Config = {
         white: '#FFFFFF',
         'white/8': '#FFFFFF14',
         'white/16': '#FFFFFF29',
+        'white/80': '#FFFFFFCC',
         'white/92': '#FFFFFFEB',
         black: '#000000',
         'black/8': '#00000014',
         'black/16': '#00000029',
+        'black/80': '#000000CC',
         'black/92': '#000000EB',
         light: '#F7F7F7',
         'light/link-primary': '#1E40AF',
@@ -76,6 +78,31 @@ const config: Config = {
       xl: ['2rem' /* 32px */, '125%' /* 40px */],
       '2xl': ['3rem' /* 48px */, '125%' /* 60px */],
       '3xl': ['6rem' /* 96px */, '100%' /* 96px */]
+    },
+    boxShadow: {
+      'sm-wh':
+        '0 1px 2px 0 rgba(0, 0, 0, .14), 0 0.5px 1px 0 rgba(0, 0, 0, .12)',
+      'base-wh':
+        '0 2px 4px 0 rgba(0, 0, 0, .14), 0 1px 2px 0 rgba(0, 0, 0, .12)',
+      'md-wh': '0 4px 8px 0 rgba(0, 0, 0, .14), 0 2px 4px 0 rgba(0, 0, 0, .12)',
+      'lg-wh':
+        '0 8px 16px 0 rgba(0, 0, 0, .14), 0 4px 8px 0 rgba(0, 0, 0, .12)',
+      'xl-wh':
+        '0 12px 24px 0 rgba(0, 0, 0, .24), 0 6px 12px 0 rgba(0, 0, 0, .20)',
+      '2xl-wh':
+        '0 16px 32px 0 rgba(0, 0, 0, .24), 0 8px 16px 0 rgba(0, 0, 0, .20)',
+      'sm-bk':
+        '0 1px 2px 0 rgba(0, 0, 0, .28), 0 0.5px 1px 0 rgba(0, 0, 0, .24)',
+      'base-bk':
+        '0 2px 4px 0 rgba(0, 0, 0, .28), 0 1px 2px 0 rgba(0, 0, 0, .24)',
+      'md-bk': '0 4px 8px 0 rgba(0, 0, 0, .28), 0 2px 4px 0 rgba(0, 0, 0, .24)',
+      'lg-bk':
+        '0 8px 16px 0 rgba(0, 0, 0, .28), 0 4px 8px 0 rgba(0, 0, 0, .24)',
+      'xl-bk':
+        '0 12px 24px 0 rgba(0, 0, 0, .36), 0 6px 12px 0 rgba(0, 0, 0, .32)',
+      '2xl-bk':
+        '0 16px 32px 0 rgba(0, 0, 0, .36), 0 8px 16px 0 rgba(0, 0, 0, .32)',
+      none: defaultTheme.boxShadow.none
     }
   },
   plugins: [require('tailwindcss-easing')]
