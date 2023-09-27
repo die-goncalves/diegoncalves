@@ -1,4 +1,5 @@
 import './globals.css'
+import 'vidstack/styles/base.css'
 import type { Metadata } from 'next'
 import clsx from 'clsx'
 import { erode, iosevka, tasa_explorer } from './fonts'
