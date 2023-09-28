@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@code-hike/mdx": "^0.9.0",
     "@radix-ui/react-dialog": "^1.0.4",
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
@@ -21,6 +22,7 @@
     "eslint-config-next": "13.4.19",
     "graphql-request": "^6.1.0",
     "next": "13.4.19",
+    "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",
     "postcss": "8.4.30",
     "react": "18.2.0",

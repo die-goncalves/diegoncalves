@@ -1,4 +1,8 @@
 import './globals.css'
+import '@code-hike/mdx/styles'
+import '@code-hike/lighter/themes/github-from-css.css'
+import '@code-hike/lighter/themes/material-from-css.css'
+import './markdown.css'
 import 'vidstack/styles/base.css'
 import type { Metadata } from 'next'
 import clsx from 'clsx'

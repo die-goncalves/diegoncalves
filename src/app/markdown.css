@@ -1,0 +1,133 @@
+/**
+ * Codehike
+ */
+
+.ch-codeblock, .ch-codegroup {
+  @apply shadow-none mb-4 max-w-4xl mx-auto overflow-visible !important
+}
+.ch-editor-frame {
+  @apply max-h-96 mx-4 md:mx-8 shadow-base-wh dark:shadow-base-bk !important
+}
+
+.ch-codeblock {
+  @apply px-4 md:px-8 shadow-none max-h-96 !important
+}
+.ch-codeblock .ch-code-wrapper {
+  @apply shadow-base-wh dark:shadow-base-bk !important
+}
+.ch-codeblock .ch-code-button {
+  @apply top-[1vw] right-[1vw] !important
+}
+
+.ch-frame-title-bar {
+  @apply h-10 !important
+}
+.ch-frame-buttons {
+  @apply hidden !important
+}
+
+.ch-editor-tab {
+  @apply font-sans px-4 !important
+}
+.ch-editor-tab[data-active=true] {
+  @apply border-b-2 border-b-brand text-black/92 dark:text-white/92 !important
+}
+.ch-editor-tab>div {
+  @apply m-0 !important
+}
+
+.ch-editor-button, .ch-code-button {
+  @apply flex w-10 h-10 mr-0 outline-none border-solid border-2 border-transparent !important
+}
+.ch-editor-button svg, .ch-code-button svg {
+  @apply m-auto w-6 h-6 text-black/92 dark:text-white/92 !important
+}
+.ch-editor-button:focus, .ch-code-button:focus {
+  @apply border-brand !important
+}
+.ch-editor-button[title=Expand] {
+  @apply hidden !important
+}
+
+.ch-code-multiline-mark .ch-code-button {
+  @apply hidden !important
+}
+
+.ch-code-wrapper span {
+  @apply font-mono text-xs
+}
+
+.ch-scrollycoding {
+  @apply mb-4 mx-auto max-w-4xl px-4 md:px-8 grid grid-cols-2 !important
+}
+.ch-scrollycoding-content {
+  @apply w-full !important
+}
+.ch-scrollycoding-step-content {
+  @apply m-0 p-4 rounded-none !important
+}
+.ch-scrollycoding-step-content div {
+  @apply mx-0 p-0
+}
+.ch-scrollycoding-step-content[data-selected] {
+  @apply border-2 border-brand !important
+}
+.ch-scrollycoding-sticker {
+  @apply w-full top-0 !important
+}
+.ch-scrollycoding-sticker .ch-codegroup {
+  @apply m-0 p-0 !important
+}
+.ch-scrollycoding-sticker .ch-editor-frame {
+  @apply mx-0 !important
+}
+
+.ch-spotlight {
+  @apply gap-4 relative mb-4 mx-auto max-w-4xl md:px-8 px-4 flex flex-col md:grid md:grid-rows-1 md:grid-cols-2 !important
+}
+.ch-spotlight .ch-code-scroll-parent {
+  @apply w-full !important
+}
+.ch-spotlight-tabs {
+  @apply w-full gap-0 !important
+}
+.ch-spotlight-tab {
+  @apply m-0 p-4 rounded-none border-2 border-black/8 dark:border-white/8 !important
+}
+.ch-spotlight-tab + .ch-spotlight-tab {
+  @apply mt-4 !important
+}
+.ch-spotlight-tab div {
+  @apply mx-0 p-0
+}
+.ch-spotlight-tab ul {
+  @apply p-0
+}
+.ch-spotlight-tab > div:last-child {
+  @apply mb-0
+}
+.ch-spotlight-tab[data-selected] {
+  @apply border-2 border-brand !important
+}
+.ch-spotlight-tab:not([data-selected]):hover {
+  @apply border-brand/25 !important
+}
+.ch-spotlight-sticker {
+  @apply w-full min-w-0 top-0 h-96 !important
+}
+.ch-spotlight-sticker .ch-codegroup {
+  @apply m-0 p-0 !important
+}
+.ch-spotlight-sticker .ch-editor-frame {
+  @apply mx-0 !important
+}
+
+.ch-code-scroll-parent {
+  /* @apply h-full !important */
+}
+.ch-code-inline-link {
+  @apply outline-none
+}
+.ch-code-inline-link:focus {
+  @apply ring-2 ring-brand
+}
