@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import classNames, { clsx } from 'clsx'
+import clsx from 'clsx'
 import { serialize } from 'next-mdx-remote/serialize'
 import { remarkCodeHike } from '@code-hike/mdx'
 import request, { gql } from 'graphql-request'
@@ -397,7 +397,7 @@ export default async function Post({ params }: Props) {
               <li className="group flex h-fit flex-1">
                 <Link
                   href={`${before.slug}`}
-                  className={classNames(
+                  className={clsx(
                     'group grid flex-1 items-start gap-4 p-4 [grid-template-columns:min-content_1fr] [grid-template-rows:min-content_1fr]',
                     'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
                     'duration-300 ease-out-quart [transition-property:background]',
@@ -431,7 +431,7 @@ export default async function Post({ params }: Props) {
               <li className="group flex h-fit flex-1 md:col-start-2">
                 <Link
                   href={`${after.slug}`}
-                  className={classNames(
+                  className={clsx(
                     'group grid flex-1 items-start gap-4 p-4 text-right [grid-template-rows:min-content_1fr] [grid-template-columns:1fr_min-content] sm:p-4',
                     'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
                     'duration-300 ease-out-quart [transition-property:background]',
