@@ -109,7 +109,7 @@ export async function generateMetadata(
       publishedTime: data.post.createdAt,
       modifiedTime: data.post.updatedAt,
       siteName: 'Diego Gonçalves',
-      url: `https://die-goncalves.vercel.app/artigo/${slug}`,
+      url: `${process.env.DOMAIN}/artigo/${slug}`,
       images: [data.post.seo.image.url, ...previousImages]
     }
   }
