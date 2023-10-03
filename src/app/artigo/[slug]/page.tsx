@@ -10,6 +10,7 @@ import { CameraIcon } from '@/components/icons/camera'
 import { TimerIcon } from '@/components/icons/timer'
 import { Hyperlink } from '@/components/hyperlink'
 import { formattedCreationDate, formattedUpdateDate } from '@/utils/date'
+import { urlToBaseURL } from '@/utils/toBase64'
 
 type Props = {
   params: { slug: string }
@@ -130,6 +131,12 @@ async function getPost({ slug }: { slug: string }) {
           contact
           picture {
             url
+            placeholder: url(
+              transformation: {
+                image: { resize: { height: 10, width: 10, fit: clip } }
+              }
+            )
+            mimeType
           }
         }
         publishedAt
@@ -164,6 +171,8 @@ async function getPost({ slug }: { slug: string }) {
         contact: string
         picture: {
           url: string
+          placeholder: string
+          mimeType: string
         }
       }
       createdAt: string
@@ -185,7 +194,16 @@ async function getPost({ slug }: { slug: string }) {
   return {
     id: data.post.id,
     title: data.post.title,
-    cover: data.post.cover,
+    cover: {
+      ...data.post.cover,
+      picture: {
+        url: data.post.cover.picture.url,
+        placeholder: await urlToBaseURL(
+          data.post.cover.picture.placeholder,
+          data.post.cover.picture.mimeType
+        )
+      }
+    },
     createdAt: data.post.createdAt,
     publishedAt: data.post.publishedAt,
     updatedAt: data.post.updatedAt,
@@ -309,8 +327,10 @@ export default async function Post({ params }: Props) {
               <Image
                 src={cover.picture.url}
                 alt={cover.description ?? ''}
-                fill
                 className="object-cover"
+                fill
+                placeholder="blur"
+                blurDataURL={cover.picture.placeholder}
               />
             </div>
             {(cover.description || cover.photographer) && (
