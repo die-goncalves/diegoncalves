@@ -61,6 +61,27 @@ const config: Config = {
         'slide-out': {
           from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(-100%)' }
+        },
+        'border-image-rotate': {
+          '0%': {
+            'border-image-source': 'linear-gradient(0deg, transparent, #5BC5AC)'
+          },
+          '25%': {
+            'border-image-source':
+              'linear-gradient(90deg, transparent, #5BC5AC)'
+          },
+          '50%': {
+            'border-image-source':
+              'linear-gradient(180deg, transparent, #5BC5AC)'
+          },
+          '75%': {
+            'border-image-source':
+              'linear-gradient(270deg, transparent, #5BC5AC)'
+          },
+          '100%': {
+            'border-image-source':
+              'linear-gradient(360deg, transparent, #5BC5AC)'
+          }
         }
       }
     },

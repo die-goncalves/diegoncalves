@@ -22,3 +22,14 @@
     @apply text-black bg-selection
   }
 }
+
+@layer utilities {
+  .border-gradient {
+    border-image-width: 2px;
+    border-image-outset: 0;
+    border-image-slice: 2;
+    border-image-repeat: stretch;
+    
+    @apply animate-[2s_border-image-rotate_linear_infinite_both]
+  }
+}
