@@ -9,7 +9,7 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans
   }
-  p, span, a, button {
+  p, span, a, button, mark, time {
     @apply font-serif text-base
   }
   code {
