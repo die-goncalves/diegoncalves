@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import { VideoPlayer } from './video-player'
 import { Badge } from './badge'
 import { GithubIcon } from './icons/github'
 import { PublicIcon } from './icons/public'
+import { Player } from './player/player'
 
 type Project = {
   id: string
@@ -36,7 +36,7 @@ export function ProjectCard({ project }: IProjectCard) {
         'focus-within:shadow-lg-wh hover:shadow-lg-wh dark:focus-within:shadow-lg-bk dark:hover:shadow-lg-bk'
       )}
     >
-      <VideoPlayer video={project.video} title={project.title} />
+      <Player video={project.video} title={project.title} />
 
       <div className="flex flex-col gap-4 p-4 md:p-8">
         <div>

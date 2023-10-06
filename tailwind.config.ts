@@ -23,11 +23,13 @@ const config: Config = {
         white: '#FFFFFF',
         'white/8': '#FFFFFF14',
         'white/16': '#FFFFFF29',
+        'white/24': '#FFFFFF3D',
         'white/80': '#FFFFFFCC',
         'white/92': '#FFFFFFEB',
         black: '#000000',
         'black/8': '#00000014',
         'black/16': '#00000029',
+        'black/24': '#0000003D',
         'black/80': '#000000CC',
         'black/92': '#000000EB',
         light: '#F7F7F7',
@@ -62,6 +64,22 @@ const config: Config = {
           from: { transform: 'translateX(0%)' },
           to: { transform: 'translateX(-100%)' }
         },
+        'slide-down-and-fade': {
+          from: { opacity: '0', transform: 'translateY(-16px)' },
+          to: { opacity: '1', transform: 'translateY(0)' }
+        },
+        'slide-left-and-fade': {
+          from: { opacity: '0', transform: 'translateX(16px)' },
+          to: { opacity: '1', transform: 'translateX(0)' }
+        },
+        'slide-up-and-fade': {
+          from: { opacity: '0', transform: 'translateY(16px)' },
+          to: { opacity: '1', transform: 'translateY(0)' }
+        },
+        'slide-right-and-fade': {
+          from: { opacity: '0', transform: 'translateX(-16px)' },
+          to: { opacity: '1', transform: 'translateX(0)' }
+        },
         'border-image-rotate': {
           '0%': {
             'border-image-source': 'linear-gradient(0deg, transparent, #5BC5AC)'
@@ -93,7 +111,7 @@ const config: Config = {
       '2xl': '1440px'
     },
     fontSize: {
-      xs: ['0.875rem' /* 12px */, '125%' /* 15px */],
+      xs: ['0.875rem' /* 14px */, '150%' /* 21px */],
       sm: ['1rem' /* 16px */, '150%' /* 24px */],
       base: ['1.25rem' /* 20px */, '175%' /* 35px */],
       xl: ['1.5rem' /* 24px */, '125%' /* 30px */],
@@ -127,6 +145,12 @@ const config: Config = {
       none: defaultTheme.boxShadow.none
     }
   },
-  plugins: [require('tailwindcss-easing')]
+  plugins: [
+    require('tailwindcss-easing'),
+    require('@vidstack/react/tailwind.cjs')({
+      // Change the media variants prefix.
+      prefix: 'media'
+    })
+  ]
 }
 export default config

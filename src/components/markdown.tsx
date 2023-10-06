@@ -4,8 +4,8 @@ import { HTMLAttributes } from 'react'
 import { MDXRemote } from 'next-mdx-remote'
 import { CH } from '@code-hike/mdx/components'
 import { Hyperlink } from './hyperlink'
-import { IVideoPlayer, VideoPlayer } from './video-player'
 import { IPicture, Picture } from './picture'
+import { Player, IPlayer } from './player/player'
 
 const components = {
   CH,
@@ -60,10 +60,10 @@ const components = {
       </div>
     )
   },
-  VideoComponent: (props: IVideoPlayer) => {
+  VideoComponent: (props: IPlayer) => {
     return (
       <div className="relative mx-auto mb-4 max-w-4xl md:px-8">
-        <VideoPlayer {...props} />
+        <Player {...props} />
       </div>
     )
   },
