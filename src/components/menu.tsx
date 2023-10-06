@@ -31,7 +31,7 @@ export function Menu() {
         <Dialog.Content asChild aria-describedby={undefined} aria-modal>
           <aside
             className={clsx(
-              'bg-light dark:bg-dark',
+              'z-10 bg-light dark:bg-dark',
               'fixed bottom-0 left-0 right-[10%] top-0 flex flex-col gap-8',
               'data-[state=closed]:animate-[slide-out_300ms] data-[state=open]:animate-[slide-in_300ms] data-[state=closed]:animation-ease-out-quart data-[state=open]:animation-ease-out-quart'
             )}
