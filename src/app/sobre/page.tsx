@@ -91,21 +91,6 @@ export default function AboutPage() {
         <p className="mb-4">
           Se quiser trabalhar comigo, sinta-se à vontade para entrar em contato.
         </p>
-
-        <div className="my-8 flex items-center justify-center">
-          <button
-            className={clsx(
-              'relative flex h-10 items-center justify-center gap-2 px-2',
-              'border-2 border-brand',
-              'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
-              'duration-300 ease-out-quart [transition-property:background]',
-              'hover:bg-black/8 focus-visible:bg-black/8 active:bg-black/16 dark:hover:bg-white/8 dark:focus-visible:bg-white/8 dark:active:bg-white/16'
-            )}
-          >
-            <span>Baixar currículo</span>
-            <PDFIcon className="h-6 w-6 fill-black/92 dark:fill-white/92" />
-          </button>
-        </div>
       </article>
     </main>
   )
