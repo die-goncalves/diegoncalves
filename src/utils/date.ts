@@ -20,3 +20,7 @@ export function formattedUpdateDate({
     .locale('pt-br')
     .to(dayjs(new Date(lastDate)))
 }
+
+export function formattedDate({ date }: { date: string }) {
+  return dayjs(new Date(date)).locale('pt-br').format('DD [de] MMMM [de] YYYY')
+}
