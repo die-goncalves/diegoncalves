@@ -6,6 +6,7 @@ import * as Sliders from '../sliders'
 import { Title } from '../title'
 import { TimeCurrent } from '../time-current'
 import { TimeDuration } from '../time-duration'
+import { BufferingIndicator } from '../buffering-indicator'
 
 // Offset tooltips/menus/slider previews in the lower controls group so they're clearly visible.
 const popupOffset = 16
@@ -17,6 +18,7 @@ export interface VideoLayoutProps {
 export function VideoLayout({ title, src }: VideoLayoutProps) {
   return (
     <>
+      <BufferingIndicator />
       <Gestures />
       <Controls.Root className="absolute inset-0 z-10 flex h-full w-full flex-col bg-gradient-to-t from-black/10 to-transparent p-4 opacity-0 transition-opacity group-data-[fullscreen]:!p-4 media-controls:opacity-100 md:p-8 md:group-data-[fullscreen]:!p-8">
         <Tooltip.Provider>
