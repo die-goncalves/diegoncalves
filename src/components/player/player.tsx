@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   MediaPlayer,
   MediaProvider,
@@ -18,19 +18,30 @@ export interface IPlayer {
   }
 }
 export function Player({ title, video }: IPlayer) {
-  let player = useRef<MediaPlayerInstance>(null)
+  const player = useRef<MediaPlayerInstance>(null)
+  const [src, setSrc] = useState<{ src: string; type: string }>({
+    src: '',
+    type: ''
+  })
+
+  useEffect(() => {
+    setSrc({ src: video.url, type: video.mimeType })
+  }, [video])
 
   return (
-    <MediaPlayer
-      className="group aspect-video w-full overflow-hidden bg-black !outline-none data-[focus]:!outline-brand"
-      title={title}
-      src={[{ src: video.url, type: video.mimeType }]}
-      crossorigin="true"
-      ref={player}
-    >
-      <MediaProvider />
+    <div className="relative flex aspect-video w-full bg-black">
+      <MediaPlayer
+        className="group aspect-video w-full bg-white/8 !outline-none data-[focus]:!outline-brand"
+        title={title}
+        src={[{ src: src.src, type: src.type }]}
+        crossorigin
+        load="idle"
+        ref={player}
+      >
+        <MediaProvider />
 
-      <VideoLayout title={title} src={video.url} />
-    </MediaPlayer>
+        <VideoLayout title={title} src={src.src} />
+      </MediaPlayer>
+    </div>
   )
 }
