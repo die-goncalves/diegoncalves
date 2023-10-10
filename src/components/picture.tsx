@@ -2,7 +2,6 @@ import { Fragment } from 'react'
 import Image, { ImageProps } from 'next/image'
 import { CameraIcon } from './icons/camera'
 import { Hyperlink } from './hyperlink'
-import { urlToBaseURL } from '@/utils/toBase64'
 
 export type IPicture = ImageProps & {
   photographer?: string
@@ -16,7 +15,6 @@ export async function Picture({
   ...props
 }: IPicture) {
   const { placeholder, blurDataURL, alt, src, ...rest } = props
-  const responseFallback = fallback && (await urlToBaseURL(fallback))
   return (
     <Fragment>
       <div className="relative aspect-video w-full">
@@ -27,7 +25,7 @@ export async function Picture({
           className="object-cover"
           {...(fallback && {
             placeholder: 'blur',
-            blurDataURL: responseFallback
+            blurDataURL: fallback
           })}
           {...rest}
         />
