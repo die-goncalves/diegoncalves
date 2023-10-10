@@ -11,6 +11,8 @@ import { TimerIcon } from '@/components/icons/timer'
 import { Hyperlink } from '@/components/hyperlink'
 import { formattedCreationDate, formattedUpdateDate } from '@/utils/date'
 import { urlToBaseURL } from '@/utils/toBase64'
+import { Comment } from '@/components/comment'
+import { Badge } from '@/components/badge'
 
 type Props = {
   params: { slug: string }
@@ -402,6 +404,16 @@ export default async function Post({ params }: Props) {
               </div>
             </div>
           </div>
+
+          <ul className="mt-3 flex flex-wrap gap-4">
+            {tags.map(t => {
+              return (
+                <li key={t.id}>
+                  <Badge label={t.name} />
+                </li>
+              )
+            })}
+          </ul>
         </header>
 
         <Markdown source={serialized} />
@@ -483,6 +495,10 @@ export default async function Post({ params }: Props) {
             )}
           </ul>
         </nav>
+
+        <div className="mx-auto my-12 flex max-w-4xl px-4 md:px-8">
+          <Comment />
+        </div>
       </article>
     </main>
   )
