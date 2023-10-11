@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { ProjectCard } from '@/components/project-card'
 import { request, gql } from 'graphql-request'
-import { formattedCreationDate } from '@/utils/date'
+import { formatDate } from '@/utils/date'
 
 export const metadata: Metadata = {
   title: 'Projetos | Diego Gonçalves'
@@ -61,7 +61,10 @@ async function getProjects() {
       id: project.id,
       title: project.title,
       description: project.description,
-      publicationDate: formattedCreationDate({ date: project.publicationDate }),
+      publicationDate: formatDate({
+        date: project.publicationDate,
+        template: 'dddd, DD [de] MMMM [de] YYYY [-] hh[:]mm[:]ss a'
+      }),
       github: project.github,
       web: project.web,
       tags: project.tags,

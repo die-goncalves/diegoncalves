@@ -3,13 +3,7 @@ import 'dayjs/locale/pt-br'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 
-export function formattedCreationDate({ date }: { date: string }) {
-  return dayjs(new Date(date))
-    .locale('pt-br')
-    .format('dddd, DD [de] MMMM [de] YYYY [-] hh[:]mm[:]ss a')
-}
-
-export function formattedUpdateDate({
+export function formatTimeToX({
   previousDate,
   lastDate
 }: {
@@ -21,6 +15,12 @@ export function formattedUpdateDate({
     .to(dayjs(new Date(lastDate)))
 }
 
-export function formattedDate({ date }: { date: string }) {
-  return dayjs(new Date(date)).locale('pt-br').format('DD [de] MMMM [de] YYYY')
+export function formatDate({
+  date,
+  template
+}: {
+  date: string
+  template?: string
+}) {
+  return dayjs(new Date(date)).locale('pt-br').format(template)
 }

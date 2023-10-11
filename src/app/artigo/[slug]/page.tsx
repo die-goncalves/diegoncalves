@@ -9,7 +9,7 @@ import { Markdown } from '@/components/markdown'
 import { CameraIcon } from '@/components/icons/camera'
 import { TimerIcon } from '@/components/icons/timer'
 import { Hyperlink } from '@/components/hyperlink'
-import { formattedCreationDate, formattedUpdateDate } from '@/utils/date'
+import { formatDate, formatTimeToX } from '@/utils/date'
 import { urlToBaseURL } from '@/utils/toBase64'
 import { Comment } from '@/components/comment'
 import { Badge } from '@/components/badge'
@@ -380,7 +380,13 @@ export default async function Post({ params }: Props) {
 
               <div className="flex flex-col md:flex-row">
                 <span className="first-letter:capitalize">
-                  <time>{formattedCreationDate({ date: createdAt })}</time>
+                  <time>
+                    {formatDate({
+                      date: createdAt,
+                      template:
+                        'dddd, DD [de] MMMM [de] YYYY [-] hh[:]mm[:]ss a'
+                    })}
+                  </time>
                 </span>
 
                 <div className={clsx(updatedAt ? 'block' : 'hidden')}>
@@ -388,7 +394,7 @@ export default async function Post({ params }: Props) {
                   <span>Atualizado&nbsp;</span>
                   <span>
                     <time>
-                      {formattedUpdateDate({
+                      {formatTimeToX({
                         previousDate: createdAt,
                         lastDate: updatedAt
                       })}

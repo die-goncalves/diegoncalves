@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import request, { gql } from 'graphql-request'
 import clsx from 'clsx'
-import { formattedDate } from '@/utils/date'
+import { formatDate } from '@/utils/date'
 import { urlToBaseURL } from '@/utils/toBase64'
 
 export const metadata: Metadata = {
@@ -138,7 +138,10 @@ export default async function Home() {
                         {newPost.title}
                       </p>
                       <p className="text-black/80 dark:text-white/80">
-                        {formattedDate({ date: newPost.updatedAt })}
+                        {formatDate({
+                          date: newPost.updatedAt,
+                          template: 'DD [de] MMMM [de] YYYY'
+                        })}
                       </p>
                     </Link>
                   </li>
@@ -160,7 +163,10 @@ export default async function Home() {
                         {oldPost.title}
                       </p>
                       <p className="text-black/80 dark:text-white/80">
-                        {formattedDate({ date: oldPost.updatedAt })}
+                        {formatDate({
+                          date: oldPost.updatedAt,
+                          template: 'DD [de] MMMM [de] YYYY'
+                        })}
                       </p>
                     </Link>
                   </li>
