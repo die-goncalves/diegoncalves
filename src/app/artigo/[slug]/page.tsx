@@ -324,7 +324,7 @@ export default async function Post({ params }: Props) {
     <main>
       <article className="bg-light text-black/92 dark:bg-dark dark:text-white/92">
         <header className="mx-auto mb-8 mt-8 max-w-4xl md:px-16">
-          <div>
+          <figure>
             <div className="relative h-36 w-full sm:h-72">
               <Image
                 src={cover.picture.url}
@@ -336,7 +336,7 @@ export default async function Post({ params }: Props) {
               />
             </div>
             {(cover.description || cover.photographer) && (
-              <div className="flex flex-wrap items-start px-4 py-1 md:px-0">
+              <figcaption className="flex flex-wrap items-start px-4 py-1 md:px-0">
                 <CameraIcon className="mr-2 hidden h-6 w-6 flex-none fill-black/16 align-text-top dark:fill-white/16 sm:inline" />
                 <p className="text-sm">{cover.description}</p>
                 {cover.description && cover.photographer && (
@@ -355,9 +355,9 @@ export default async function Post({ params }: Props) {
                   ) : (
                     <p className="text-sm">{cover.photographer}</p>
                   ))}
-              </div>
+              </figcaption>
             )}
-          </div>
+          </figure>
 
           <div className="px-4 md:px-0">
             <h1 className="mb-4 mt-8 font-sans text-3xl font-bold">{title}</h1>
