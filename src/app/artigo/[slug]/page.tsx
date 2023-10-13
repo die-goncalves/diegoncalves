@@ -13,6 +13,7 @@ import { formatDate, formatTimeToX } from '@/utils/date'
 import { urlToBaseURL } from '@/utils/toBase64'
 import { Comment } from '@/components/comment'
 import { Badge } from '@/components/badge'
+import { time } from '@/utils/reading-time'
 
 type Props = {
   params: { slug: string }
@@ -141,7 +142,6 @@ async function getPost({ slug }: { slug: string }) {
             mimeType
           }
         }
-        publishedAt
         createdAt
         updatedAt
         authors {
@@ -178,7 +178,6 @@ async function getPost({ slug }: { slug: string }) {
         }
       }
       createdAt: string
-      publishedAt: string
       updatedAt: string
       authors: {
         id: string
@@ -207,11 +206,11 @@ async function getPost({ slug }: { slug: string }) {
       }
     },
     createdAt: data.post.createdAt,
-    publishedAt: data.post.publishedAt,
     updatedAt: data.post.updatedAt,
     authors: data.post.authors,
     tags: data.post.tags,
-    content: data.post.content
+    content: data.post.content,
+    time: time(data.post.content)
   }
 }
 
@@ -278,26 +277,6 @@ async function getPreviousNextPosts({ id }: { id: string }) {
   }
 }
 
-function readingTime({ content }: { content: string }) {
-  const wordsPerMinute = 200
-  const regex = /\w+/g
-  const codeBlockRegex = /`{3}[\w\W]*?`{3}/gm
-  const totalWords = content.match(regex)?.length ?? 0
-  const totalCodeBlocks = content.match(codeBlockRegex)
-
-  const wordsInCodeBlocks =
-    totalCodeBlocks?.reduce((accumulator, currentValue) => {
-      const wordCount = currentValue.match(regex)?.length ?? 0
-      return accumulator + wordCount
-    }, 0) ?? 0
-
-  const time = Math.ceil((totalWords - wordsInCodeBlocks) / wordsPerMinute)
-
-  return {
-    time
-  }
-}
-
 // Multiple versions of this page will be statically generated
 // using the `params` returned by `generateStaticParams`
 export default async function Post({ params }: Props) {
@@ -307,18 +286,14 @@ export default async function Post({ params }: Props) {
     title,
     cover,
     createdAt,
-    publishedAt,
     updatedAt,
     authors,
     tags,
-    content
+    content,
+    time
   } = await getPost({ slug })
-
   const serialized = await serializeMDX({ content })
-
   const { before, after } = await getPreviousNextPosts({ id })
-
-  const { time } = readingTime({ content })
 
   return (
     <main>
