@@ -131,3 +131,7 @@
 .ch-code-inline-link:focus {
   @apply ring-2 ring-brand
 }
+
+iframe.codeblock {
+  @apply w-full max-h-[468px] aspect-video mb-4 max-w-4xl mx-auto md:px-8
+}
