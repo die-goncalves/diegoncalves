@@ -1,192 +1,28 @@
 /* *****************************************************************************
-----------------------------------> Codehike <----------------------------------
+------------------------------> Codehike: Bright <------------------------------
 *******************************************************************************/
-.ch-code-wrapper {
+div[data-bright-theme] {
+  @apply w-full rounded-none shadow-base-wh dark:shadow-base-bk !important
+}
+
+div[data-bright-theme] ::selection {
+  @apply text-black bg-selection
+}
+
+div[data-bright-theme] span, div[data-bright-theme] div {
+  @apply font-mono text-xs leading-7 !important
+}
+
+div[data-bright-theme] pre {
   @apply max-h-96 !important
 }
-.ch-codeblock, .ch-codegroup {
-  @apply shadow-none mb-4 max-w-4xl mx-auto overflow-visible !important
-}
-.ch-editor-frame {
-  @apply mx-4 md:mx-8 shadow-base-wh dark:shadow-base-bk !important
-}
-.ch-code-scroll-parent, .ch-codeblock {
-  @apply max-h-96 h-auto !important
-}
-.ch-code-scroll-content {
-  @apply flex relative !important
-}
-.ch-codeblock {
-  @apply px-4 md:px-8 !important
-}
-.ch-codeblock .ch-code-wrapper {
-  @apply shadow-base-wh dark:shadow-base-bk !important
+
+p code {
+  @apply border-[1px] border-black/16 bg-black/8 font-mono text-xs text-black/92 dark:border-white/16 dark:bg-white/8 dark:text-white/92
 }
 
-/* *****************************************************************************
-------------------------------------> Abas <------------------------------------
-*******************************************************************************/
-.ch-frame-title-bar {
-  @apply flex flex-wrap h-fit !important
-}
-.ch-editor-tab {
-  @apply px-4 h-10 relative box-border border-b-2 translate-x-0 !important
-}
-.ch-editor-tab, .ch-editor-tab span {
-  @apply inline-flex font-mono text-xs opacity-100 !important
-}
-.ch-editor-tab[data-active=true] {
-  @apply border-b-brand text-black/92 dark:text-white/92 !important
-}
-.ch-editor-tab > div {
-  @apply flex text-xs !important
-}
-
-/* *****************************************************************************
----------------------------> Botão que copia código <---------------------------
-*******************************************************************************/
-.ch-editor-button, .ch-code-button {
-  @apply flex w-10 h-10 mr-0 outline-none border-solid border-2 border-transparent !important
-}
-.ch-editor-button svg, .ch-code-button svg {
-  @apply m-auto w-6 h-6 text-black/92 dark:text-white/92 !important
-}
-.ch-editor-button:focus, .ch-code-button:focus {
-  @apply border-brand !important
-}
-
-/* *****************************************************************************
--------------------------> Remove botão de tela cheia <-------------------------
-*******************************************************************************/
-.ch-editor-button[title=Expand] {
-  @apply hidden !important
-}
-
-/* *****************************************************************************
------------------------------> Remove o semáforo <------------------------------
-*******************************************************************************/
-.ch-frame-buttons {
-  @apply hidden !important
-}
-
-/* *****************************************************************************
----------------------------------> Highlight <----------------------------------
-*******************************************************************************/
-.ch-code-inline-mark, .ch-code-multiline-mark {
-  @apply bg-black/5 dark:bg-white/10 rounded-none !important
-}
-
-/* *****************************************************************************
--------------------> Remove botão que copia código marcado <--------------------
-*******************************************************************************/
-.ch-code-multiline-mark .ch-code-button {
-  @apply hidden !important
-}
-
-/* *****************************************************************************
---------------------> Família e tamanho da fonte do código <--------------------
-*******************************************************************************/
-.ch-code-wrapper span {
-  @apply font-mono text-xs
-}
-
-/* *****************************************************************************
--------------------------------> Focus em links <-------------------------------
-*******************************************************************************/
-.ch-code-inline-link {
-  @apply outline-none
-}
-.ch-code-inline-link:focus {
-  @apply ring-2 ring-brand
-}
-
-/* *****************************************************************************
--------------------------------> Scrollycoding <--------------------------------
-*******************************************************************************/
-.ch-scrollycoding {
-  @apply mb-4 mx-auto max-w-4xl px-4 md:px-8 grid grid-cols-2 !important
-}
-.ch-scrollycoding-content {
-  @apply w-full !important
-}
-/* ----------------------------> Abas laterais <----------------------------- */
-.ch-scrollycoding-step-content {
-  @apply m-0 p-4 rounded-none !important
-}
-.ch-scrollycoding-step-content div {
-  @apply mx-0 p-0 !important
-}
-.ch-scrollycoding-step-content > div:last-child {
-  @apply mb-0 !important
-}
-.ch-scrollycoding-step-content > div:first-child {
-  @apply mt-0 !important
-}
-.ch-scrollycoding-step-content[data-selected] {
-  @apply border-2 border-brand !important
-}
-/* -------------------------------> Sticker <-------------------------------- */
-.ch-scrollycoding-sticker {
-  @apply w-full top-0 !important
-}
-.ch-scrollycoding-sticker .ch-codegroup {
-  @apply m-0 p-0 !important
-}
-.ch-scrollycoding-sticker .ch-editor-frame {
-  @apply mx-0 !important
-}
-
-/* *****************************************************************************
----------------------------------> Spotlight <----------------------------------
-*******************************************************************************/
-.ch-spotlight {
-  @apply gap-4 relative mb-4 mx-auto max-w-4xl md:px-8 px-4 flex flex-col md:grid md:grid-cols-[1fr_1fr] !important
-}
-
-/* ----------------------------> Abas laterais <----------------------------- */
-.ch-spotlight-tabs {
-  @apply w-full gap-0 !important
-}
-.ch-spotlight-tab {
-  @apply m-0 p-4 rounded-none border-2 border-black/8 dark:border-white/8 !important
-}
-.ch-spotlight-tab + .ch-spotlight-tab {
-  @apply mt-4 !important
-}
-.ch-spotlight-tab div {
-  @apply mx-0 p-0 !important
-}
-.ch-spotlight-tab ul {
-  @apply p-0 !important
-}
-.ch-spotlight-tab > div:last-child {
-  @apply mb-0 !important
-}
-.ch-spotlight-tab > div:first-child {
-  @apply mt-0 !important
-}
-.ch-spotlight-tab[data-selected] {
-  @apply border-2 border-brand !important
-}
-.ch-spotlight-tab:not([data-selected]):hover {
-  @apply border-brand/25 !important
-}
-
-/* -------------------------------> Sticker <-------------------------------- */
-.ch-spotlight-sticker {
-  @apply max-w-full h-96 !important
-}
-.ch-spotlight-sticker .ch-code-scroll-parent {
-  @apply h-[inherit] md:h-auto md:max-h-full !important
-}
-.ch-spotlight-sticker .ch-codegroup {
-  @apply m-0 p-0 md:max-h-0 !important
-}
-.ch-spotlight-sticker .ch-editor-frame {
-  @apply mx-0 grid !important
-}
-.ch-spotlight-sticker .ch-code-wrapper {
-  @apply max-h-96 md:max-h-none !important
+[data-bright-theme] div[role="tablist"] > button[data-state="inactive"] {
+  @apply !text-[var(--line-number-color)]
 }
 
 /* *****************************************************************************

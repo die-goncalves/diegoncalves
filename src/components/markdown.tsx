@@ -1,12 +1,19 @@
-'use client'
-
-import { HTMLAttributes } from 'react'
-import { MDXRemote } from 'next-mdx-remote'
-import { CH } from '@code-hike/mdx/components'
+import { HTMLAttributes, ReactNode } from 'react'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Hyperlink } from './hyperlink'
 import { Player, IPlayer } from './player/player'
 import Image, { ImageProps } from 'next/image'
 import { CameraIcon } from './icons/camera'
+import { Code } from 'bright'
+import { collapse, focus, highlight, copy, titleBar } from './bright/extension'
+import { Tabs } from './bright/tab-panels/tabs'
+
+Code.lineNumbers = true
+Code.extensions = [highlight, focus, collapse, copy, titleBar]
+Code.theme = Code.theme = {
+  dark: 'github-dark',
+  light: 'github-light'
+}
 
 type IPicture = ImageProps & {
   photographer?: string
@@ -15,7 +22,6 @@ type IPicture = ImageProps & {
 }
 
 const components = {
-  CH,
   h2: (props: HTMLAttributes<HTMLHeadingElement>) => {
     return (
       <div className="mx-auto mb-6 mt-8 max-w-4xl px-4 first:mt-0 md:px-16">
@@ -54,12 +60,6 @@ const components = {
       </div>
     )
   },
-  code: (props: HTMLAttributes<HTMLElement>) => (
-    <code
-      className="border-[1px] border-black/16 bg-black/8 font-mono text-xs text-black/92 dark:border-white/16 dark:bg-white/8 dark:text-white/92"
-      {...props}
-    />
-  ),
   ImageComponent: ({
     src,
     alt,
@@ -111,12 +111,26 @@ const components = {
       </div>
     )
   },
-  Hyperlink
+  Hyperlink,
+  pre: (props: HTMLAttributes<HTMLPreElement>) => {
+    return (
+      <div className="relative mx-auto mb-4 max-w-4xl px-4 md:px-8">
+        <Code {...props} />
+      </div>
+    )
+  },
+  Tabs: (props: { children: ReactNode }) => {
+    return (
+      <div className="relative mx-auto mb-4 max-w-4xl px-4 md:px-8">
+        <Tabs {...props} />
+      </div>
+    )
+  }
 }
 
 interface IMarkdown {
   source: any
 }
 export function Markdown({ source }: IMarkdown) {
-  return <MDXRemote {...source} components={components} />
+  return <MDXRemote source={source} components={{ ...components }} />
 }

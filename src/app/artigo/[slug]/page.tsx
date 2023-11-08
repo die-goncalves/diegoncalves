@@ -2,8 +2,6 @@ import { Metadata, ResolvingMetadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
-import { serialize } from 'next-mdx-remote/serialize'
-import { remarkCodeHike } from '@code-hike/mdx'
 import request, { gql } from 'graphql-request'
 import { Markdown } from '@/components/markdown'
 import { CameraIcon } from '@/components/icons/camera'
@@ -214,26 +212,6 @@ async function getPost({ slug }: { slug: string }) {
   }
 }
 
-async function serializeMDX({ content }: { content: string }) {
-  const serialized = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [
-        [
-          remarkCodeHike,
-          {
-            lineNumbers: true,
-            showCopyButton: true,
-            autoImport: false,
-            theme: 'material-from-css'
-          }
-        ]
-      ],
-      useDynamicImport: true
-    }
-  })
-  return serialized
-}
-
 async function getPreviousNextPosts({ id }: { id: string }) {
   const endpoint = process.env.CMS_HYGRAPH ?? ''
 
@@ -292,12 +270,11 @@ export default async function Post({ params }: Props) {
     content,
     time
   } = await getPost({ slug })
-  const serialized = await serializeMDX({ content })
   const { before, after } = await getPreviousNextPosts({ id })
 
   return (
     <main>
-      <article className="bg-light text-black/92 dark:bg-dark dark:text-white/92">
+      <article className="break-words bg-light text-black/92 dark:bg-dark dark:text-white/92">
         <header className="mx-auto mb-8 mt-8 max-w-4xl md:px-16">
           <figure>
             <div className="relative h-36 w-full sm:h-72">
@@ -397,7 +374,7 @@ export default async function Post({ params }: Props) {
           </ul>
         </header>
 
-        <Markdown source={serialized} />
+        <Markdown source={content} />
 
         <nav className="mx-auto my-12 max-w-4xl px-4 md:px-8">
           <ul
