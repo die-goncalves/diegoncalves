@@ -31,6 +31,7 @@ export function Player({ title, video }: IPlayer) {
   return (
     <div className="relative flex aspect-video w-full bg-black">
       <MediaPlayer
+        controlsDelay={500}
         className="group aspect-video w-full bg-white/8 !outline-none data-[focus]:!outline-brand"
         title={title}
         src={[{ src: src.src, type: src.type }]}
