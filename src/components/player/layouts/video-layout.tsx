@@ -20,7 +20,7 @@ export function VideoLayout({ title, src }: VideoLayoutProps) {
     <>
       <BufferingIndicator />
       <Gestures />
-      <Controls.Root className="absolute inset-0 z-10 flex h-full w-full flex-col bg-gradient-to-t from-black/10 to-transparent p-4 opacity-0 transition-opacity group-data-[fullscreen]:!p-4 media-controls:opacity-100 md:p-8 md:group-data-[fullscreen]:!p-8">
+      <Controls.Root className="absolute inset-0 z-10 flex h-full w-full flex-col bg-black/80 p-4 opacity-0 transition-opacity duration-500 ease-out-quart [transition-property:opacity] group-data-[fullscreen]:!p-4 media-controls:opacity-100 md:p-8 md:group-data-[fullscreen]:!p-8">
         <Tooltip.Provider>
           <div className="control-top grid grid-cols-2 group-data-[preview]:hidden md:group-data-[preview]:grid">
             <div className="hidden duration-300 ease-out-quart [transition-property:margin] group-data-[pip]:mt-10 md:flex">
