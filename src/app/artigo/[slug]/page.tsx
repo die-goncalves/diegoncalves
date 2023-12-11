@@ -112,7 +112,9 @@ export async function generateMetadata(
       modifiedTime: data.post.updatedAt,
       siteName: 'Diego Gonçalves',
       url: `${process.env.DOMAIN}/artigo/${slug}`,
-      images: [data.post.seo.image.url, ...previousImages]
+      images: [data.post.seo.image?.url, ...previousImages].filter(
+        image => image
+      )
     }
   }
 }
