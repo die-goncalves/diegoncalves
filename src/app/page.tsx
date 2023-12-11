@@ -35,6 +35,12 @@ async function getLastPosts() {
     }[]
   } = await request(endpoint, query)
 
+  if (data.posts.length === 1) {
+    return {
+      newPost: data.posts[0]
+    }
+  }
+
   return {
     oldPost: data.posts[0],
     newPost: data.posts[1]
@@ -86,15 +92,23 @@ export default async function Home() {
       <article className="mx-auto min-h-[calc(100vh-(88px+139px))] max-w-4xl px-4 pt-8 sm:min-h-[calc(100vh-(88px+88px))] sm:px-8">
         <div className="my-auto flex items-center justify-center">
           <div className="flex flex-col items-center gap-8 md:flex-row">
-            <div className="relative aspect-video h-[300px] w-[225px]">
-              <Image
-                src={url}
-                alt=""
-                placeholder="blur"
-                blurDataURL={blurDataURL}
-                fill
-                className="object-cover"
-              />
+            <div
+              className={clsx(
+                'shadow-base-wh hover:shadow-lg-wh dark:shadow-base-bk dark:hover:shadow-lg-bk',
+                'duration-300 ease-out-quart [transition-property:box-shadow]',
+                'relative inline-flex p-0.5'
+              )}
+            >
+              <div className="relative aspect-video h-[300px] w-[225px]">
+                <Image
+                  src={url}
+                  alt=""
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div className="flex flex-col gap-4 text-center md:text-start">
               <span>Oi, eu sou</span>
