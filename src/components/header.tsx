@@ -39,8 +39,9 @@ export function Header() {
         <div className="hidden md:flex">
           <Navigation
             navLinks={[
-              { href: '/sobre', name: 'Sobre' },
               { href: '/projetos', name: 'Projetos' },
+              { href: '/artigos', name: 'Artigos' },
+              { href: '/sobre', name: 'Sobre' },
               { href: '/contato', name: 'Contato' }
             ]}
           />

@@ -47,12 +47,12 @@ export function Menu() {
                     'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
                     'duration-300 ease-out-quart [transition-property:background]',
                     'hover:bg-black/8 focus-visible:bg-black/8 active:bg-black/16 dark:hover:bg-white/8 dark:focus-visible:bg-white/8 dark:active:bg-white/16',
-                    pathname.startsWith('/sobre') &&
+                    pathname.startsWith('/projetos') &&
                       'before:mr-2 before:h-0.5 before:flex-1 before:bg-brand after:ml-2 after:h-0.5 after:flex-1 after:bg-brand'
                   )}
-                  href={'/sobre'}
+                  href={'/projetos'}
                 >
-                  Sobre
+                  Projetos
                 </Link>
               </Dialog.Close>
               <Dialog.Close asChild>
@@ -62,12 +62,27 @@ export function Menu() {
                     'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
                     'duration-300 ease-out-quart [transition-property:background]',
                     'hover:bg-black/8 focus-visible:bg-black/8 active:bg-black/16 dark:hover:bg-white/8 dark:focus-visible:bg-white/8 dark:active:bg-white/16',
-                    pathname.startsWith('/projetos') &&
+                    pathname.startsWith('/artigos') &&
                       'before:mr-2 before:h-0.5 before:flex-1 before:bg-brand after:ml-2 after:h-0.5 after:flex-1 after:bg-brand'
                   )}
-                  href={'/projetos'}
+                  href={'/artigos'}
                 >
-                  Projetos
+                  Artigos
+                </Link>
+              </Dialog.Close>
+              <Dialog.Close asChild>
+                <Link
+                  className={clsx(
+                    'flex h-10 items-center justify-center px-2',
+                    'outline-2 outline-offset-2 outline-black/92 focus-visible:outline dark:outline-white/92',
+                    'duration-300 ease-out-quart [transition-property:background]',
+                    'hover:bg-black/8 focus-visible:bg-black/8 active:bg-black/16 dark:hover:bg-white/8 dark:focus-visible:bg-white/8 dark:active:bg-white/16',
+                    pathname.startsWith('/sobre') &&
+                      'before:mr-2 before:h-0.5 before:flex-1 before:bg-brand after:ml-2 after:h-0.5 after:flex-1 after:bg-brand'
+                  )}
+                  href={'/sobre'}
+                >
+                  Sobre
                 </Link>
               </Dialog.Close>
               <Dialog.Close asChild>
