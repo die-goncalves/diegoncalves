@@ -153,7 +153,7 @@ export default async function Home() {
                       </p>
                       <p className="text-black/80 dark:text-white/80">
                         {formatDate({
-                          date: newPost.updatedAt,
+                          date: newPost.createdAt,
                           template: 'DD [de] MMMM [de] YYYY'
                         })}
                       </p>
@@ -178,7 +178,7 @@ export default async function Home() {
                       </p>
                       <p className="text-black/80 dark:text-white/80">
                         {formatDate({
-                          date: oldPost.updatedAt,
+                          date: oldPost.createdAt,
                           template: 'DD [de] MMMM [de] YYYY'
                         })}
                       </p>
