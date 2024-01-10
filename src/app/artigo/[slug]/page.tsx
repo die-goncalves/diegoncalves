@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import clsx from 'clsx'
 import request, { gql } from 'graphql-request'
+import dayjs from 'dayjs'
 import { Markdown } from '@/components/markdown'
 import { CameraIcon } from '@/components/icons/camera'
 import { TimerIcon } from '@/components/icons/timer'
@@ -349,8 +350,8 @@ export default async function Post({ params }: Props) {
                   <span>
                     <time>
                       {formatTimeToX({
-                        previousDate: createdAt,
-                        lastDate: updatedAt
+                        previousDate: updatedAt,
+                        lastDate: dayjs().toString()
                       })}
                     </time>
                   </span>
